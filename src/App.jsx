@@ -8,7 +8,9 @@ import { initialItems } from "./lib/constants"
 
 function App() {
 
-  const [items,setItems] = useState(initialItems);
+  const itemsFromLocalStorage = JSON.parse(localStorage.getItem('items'));
+
+  const [items,setItems] = useState(itemsFromLocalStorage || initialItems);
 
   const handleAddItem = (newItemText) => {
     const newItem = {
