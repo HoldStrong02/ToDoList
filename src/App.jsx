@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import BackgroundHeading from "./components/BackgroundHeading"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
@@ -59,7 +59,9 @@ function App() {
     setItems(newItems);
   }
 
-
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  },[items]);
 
   return (
     <>
